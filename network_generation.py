@@ -27,7 +27,7 @@ np.random.shuffle(prep)
 
 while len(prep) > 1:
     while prep[0] == prep[1]:
-        np.random.shuffle(prep)
+        np.random.shuffle(prep) 
     network[prep[0]][0].append(prep[1])
     network[prep[1]][0].append(prep[0])
     del prep[0:2]
@@ -41,3 +41,18 @@ for n in network:
     print("weight generation:", len(network) - n, "left.")
 
 json.dump(network, open("network.json", "w"), indent=4)
+
+rows = []
+cols = []
+data = []
+
+for individual in range(POPULATION):
+    contacts = network[individual][0]
+    weight = network[individual][1]
+    for contact in contacts:
+        rows.append(individual)
+        cols.append(contact)
+        data.append(weight)
+
+matrix = scipy.sparse.csr_matrix((data, (rows, cols)))
+scipy.sparse.save_npz("network.npz", matrix)

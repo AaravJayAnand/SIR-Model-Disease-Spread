@@ -1,7 +1,10 @@
 # SIR Model for Disease Spread
 
-An SIR model simulation created in Python using NumPy (for calculations), Pandas (for handling data), and Matplotlib (for a graphical visualization)
+An SIR model simulation created in Python using
+- NumPy (for calculations)
+- SciPy (for more network-tie calculations)
+- Pandas (for handling data)
+- Matplotlib (for a graphical visualization)
 
-It's gonna have network-based ties in the near future (SciPy)
-
-wip
+Complete as of right now, might add variable tie weights later but its easy so...
+:D
